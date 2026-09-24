@@ -6,7 +6,10 @@ use Illuminate\Http\Request;
 
 class dasbordcontroller extends Controller
 {
-    function index() {
-        return'mienak';
-    }
+    public function show(string $id): View
+    {
+        return view('user.profile', [
+            'user' => User::findOrFail($id)
+        ]);
+}
 }
